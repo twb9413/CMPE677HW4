@@ -18,8 +18,6 @@ xlabel('Microchip Test 1','fontsize',12)
 ylabel('Microchip Test 2','fontsize',12)
 legend('y = 0', 'y = 1')
 
- 
-
 % The data points that are not
 %  linearly separable. However, you would still like to use logistic 
 %  regression to classify the data points. 

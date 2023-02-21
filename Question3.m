@@ -18,8 +18,6 @@ xlabel('Microchip Test 1','fontsize',12)
 ylabel('Microchip Test 2','fontsize',12)
 legend('y = 0', 'y = 1')
 
- 
-
 % The data points that are not
 %  linearly separable. However, you would still like to use logistic 
 %  regression to classify the data points. 
@@ -50,7 +48,7 @@ fprintf('Cost at initial theta (zeros): %f\n', cost);  %should be about 0.693
 initial_theta = zeros(size(Xdata, 2), 1);
  
 % Set regularization parameter lambda to 1 (you should vary this)
-lambda = 1;
+lambda = 100;
  
 % Set Options
 options = optimset('GradObj', 'on', 'MaxIter', 400);
@@ -62,3 +60,5 @@ options = optimset('GradObj', 'on', 'MaxIter', 400);
     fminunc(@(t)(costFunctionLogisticRegression(t, Xdata, y, lambda)), initial_theta, options);
 
 plotDecisionBoundary(theta, Xdata, y, 6)
+accuracy = computeAccuracy(Xdata, theta, y) * 100;
+title(sprintf('\\lambda=%.0f, Accuracy=%.2f', lambda, accuracy))
