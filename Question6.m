@@ -70,10 +70,10 @@ for i = 1:numberOfFolds
             k = 3;
 
             % Use knnsearch to find nearest 3 neighbors
-            idx = knnsearch(TrainDataCV(:,2:end),TestDataCV(:,2:end),'K',k);
+            neighbors = knnsearch(TrainDataCV(:,2:end),TestDataCV(:,2:end),'K',k);
 
             % solve for TestDataPRed using mode
-            TestDataPred = mode(TrainDataGT(idx),2);
+            TestDataPred = mode(TrainDataGT(neighbors),2);
         otherwise
             error('Unknown classification method')
     end
